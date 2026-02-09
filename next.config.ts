@@ -5,7 +5,8 @@ const withNextIntl = createNextIntlPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig: NextConfig = {
-  output: 'standalone'
+  output: 'standalone',
+  basePath: '/flow_approver'
 };
 
 export default withNextIntl(nextConfig);
