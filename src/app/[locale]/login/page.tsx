@@ -5,6 +5,7 @@ import { useTranslations } from "next-intl";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import Logo from "@/components/Logo";
 import { useState } from "react";
+import { BadgeDollarSign, Car, ShoppingCart, FileText, Building2, Coins, Truck } from "lucide-react";
 
 export default function LoginPage() {
   const t = useTranslations('Login');
@@ -19,8 +20,34 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#F4F7FE] p-4 font-kanit">
-      <div className="flex w-full max-w-[1200px] h-[800px] bg-white rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] overflow-hidden">
+    <div className="min-h-screen flex items-center justify-center bg-[#F4F7FE] p-4 font-kanit relative overflow-hidden">
+      
+      {/* Animated Background Icons */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+         <div className="absolute top-[10%] left-[5%] text-blue-200/40 animate-float-slow">
+            <BadgeDollarSign size={120} />
+         </div>
+         <div className="absolute top-[20%] right-[10%] text-purple-200/40 animate-float-medium delay-1000">
+            <Car size={100} />
+         </div>
+         <div className="absolute bottom-[15%] left-[15%] text-indigo-200/40 animate-float-fast delay-2000">
+            <ShoppingCart size={90} />
+         </div>
+         <div className="absolute bottom-[20%] right-[20%] text-blue-300/30 animate-float-slow delay-3000">
+            <FileText size={110} />
+         </div>
+         <div className="absolute top-[40%] left-[20%] text-gray-200/50 animate-float-medium delay-500">
+            <Building2 size={80} />
+         </div>
+         <div className="absolute top-[15%] left-[40%] text-blue-100/60 animate-float-slow delay-1500">
+            <Coins size={60} />
+         </div>
+         <div className="absolute bottom-[30%] right-[5%] text-indigo-100/50 animate-float-fast delay-2500">
+            <Truck size={85} />
+         </div>
+      </div>
+
+      <div className="flex w-full max-w-[1200px] h-[800px] bg-white rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.05)] overflow-hidden relative z-10">
         
         {/* Left Side - Image */}
         <div className="hidden lg:block w-1/2 relative h-full">
@@ -162,6 +189,27 @@ export default function LoginPage() {
         .toggle-checkbox {
             right: 0;
             transition: all 0.3s;
+        }
+
+        @keyframes float {
+          0% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(-20px) rotate(5deg); }
+          100% { transform: translateY(0px) rotate(0deg); }
+        }
+        @keyframes float-reverse {
+          0% { transform: translateY(0px) rotate(0deg); }
+          50% { transform: translateY(20px) rotate(-5deg); }
+          100% { transform: translateY(0px) rotate(0deg); }
+        }
+
+        .animate-float-slow {
+          animation: float 8s ease-in-out infinite;
+        }
+        .animate-float-medium {
+          animation: float-reverse 6s ease-in-out infinite;
+        }
+        .animate-float-fast {
+          animation: float 5s ease-in-out infinite;
         }
       `}</style>
     </div>
