@@ -1,5 +1,10 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# Allow DeepNDev assets
+!public/DeepNDev_Logo.jpg
+!public/dndn_logo.jpg
+!public/dndn.ico
+
 # dependencies
 /node_modules
 /.pnp
