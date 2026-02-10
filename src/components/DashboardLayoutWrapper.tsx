@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import Logo from "@/components/Logo";
 import NotificationDropdown from "@/components/NotificationDropdown";
+import GlobalSearch from "@/components/GlobalSearch";
 
 export default function DashboardLayoutWrapper({
   children,
@@ -179,14 +180,7 @@ export default function DashboardLayoutWrapper({
             >
               <Menu className="w-6 h-6" />
             </button>
-            <div className="relative hidden md:block w-64">
-                <input
-                    type="text"
-                    className="w-full bg-[#f1f4f6] border-none rounded-full py-2 pl-10 pr-4 text-sm text-gray-700 focus:ring-2 focus:ring-[#3f6ad8]/50 focus:bg-white transition-all"
-                    placeholder="Search..."
-                />
-                <Search className="w-4 h-4 text-gray-400 absolute left-3.5 top-2.5" />
-            </div>
+            <GlobalSearch />
           </div>
 
           <div className="flex items-center space-x-3">
