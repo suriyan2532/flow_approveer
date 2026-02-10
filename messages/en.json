@@ -62,6 +62,7 @@
     "title": "Title",
     "id": "ID",
     "view": "View",
+    "details": "Details",
     "edit": "Edit",
     "delete": "Delete",
     "approve": "Approve",
