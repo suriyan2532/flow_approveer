@@ -1,6 +1,9 @@
 "use client";
 
-import { Printer, ArrowLeft, Download, FileText, ShoppingBag, CheckCircle2 } from "lucide-react";
+import * as XLSX from "xlsx";
+import { toPng } from "html-to-image";
+import { jsPDF } from "jspdf";
+import { Printer, ArrowLeft, Download, FileText, ShoppingBag, CheckCircle2, FileSpreadsheet } from "lucide-react";
 import { useRouter } from "@/i18n/routing";
 
 export default function ProcurementPrintPage() {
@@ -14,6 +17,55 @@ export default function ProcurementPrintPage() {
     { id: "PR-2023-005", date: "2023-11-10", requester: "John Doe", dept: "Engineering", desc: "Laptop Replacement", amount: "55,000 THB", status: "Approved" },
   ];
 
+  const handleExportExcel = () => {
+    const ws = XLSX.utils.json_to_sheet(mockData);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, "Procurement Report");
+    XLSX.writeFile(wb, "Procurement_Report.xlsx");
+  };
+
+  const handleExportPDF = async () => {
+    const input = document.getElementById("report-content");
+    if (!input) {
+      console.error("Report content element not found");
+      return;
+    }
+
+    try {
+      // Use html-to-image with improved settings for A4
+      const dataUrl = await toPng(input, { 
+        cacheBust: true,
+        quality: 1.0,
+        pixelRatio: 3, // Higher resolution
+        backgroundColor: '#ffffff', // Ensure white background
+        style: {
+          // Force print-like styles during capture
+          boxShadow: 'none',
+          borderRadius: '0',
+          margin: '0',
+          border: 'none',
+          width: '1000px', // Force a fixed width to ensure consistent layout
+          maxWidth: '1000px',
+        }
+      });
+      
+      const pdf = new jsPDF("p", "mm", "a4");
+      const imgProps = pdf.getImageProperties(dataUrl);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      
+      // If content height exceeds A4 page height (297mm), we might need multiple pages or scale down
+      // For this report, we'll fit to width and let height flow (or scale to fit if single page desired)
+      
+      pdf.addImage(dataUrl, "PNG", 0, 0, pdfWidth, pdfHeight);
+      pdf.save("Procurement_Report.pdf");
+
+    } catch (error: any) {
+       console.error("Error in handleExportPDF:", error);
+       alert(`An error occurred: ${error.message || error}`);
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gray-50 print:bg-white p-4 sm:p-8 font-kanit">
       {/* Action Bar - Hidden on Print */}
@@ -26,7 +78,17 @@ export default function ProcurementPrintPage() {
           Back to Dashboard
         </button>
         <div className="flex gap-3">
-            <button className="flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-lg text-sm font-bold bg-white text-gray-700 hover:bg-gray-50 transition-all shadow-sm">
+            <button 
+              onClick={handleExportExcel}
+              className="flex items-center gap-2 px-4 py-2 border border-green-200 rounded-lg text-sm font-bold bg-green-50 text-green-700 hover:bg-green-100 transition-all shadow-sm"
+            >
+                <FileSpreadsheet className="w-4 h-4" />
+                Export Excel
+            </button>
+            <button 
+              onClick={handleExportPDF}
+              className="flex items-center gap-2 px-4 py-2 border border-gray-200 rounded-lg text-sm font-bold bg-white text-gray-700 hover:bg-gray-50 transition-all shadow-sm"
+            >
                 <Download className="w-4 h-4" />
                 Export PDF
             </button>
@@ -41,7 +103,7 @@ export default function ProcurementPrintPage() {
       </div>
 
       {/* Report Document */}
-      <div className="max-w-5xl mx-auto bg-white shadow-2xl print:shadow-none p-8 sm:p-12 rounded-3xl print:rounded-none border border-gray-100 print:border-none">
+      <div id="report-content" className="max-w-5xl mx-auto bg-white shadow-2xl print:shadow-none p-8 sm:p-12 rounded-3xl print:rounded-none border border-gray-100 print:border-none">
         
         {/* Report Header */}
         <div className="flex flex-col sm:flex-row justify-between items-start border-b-2 border-gray-900 pb-8 mb-8 gap-6">
