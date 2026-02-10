@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Plus, Search, Filter, Banknote, MoreHorizontal } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 
 const initialPettyCash = [
   {
@@ -55,10 +56,12 @@ export default function PettyCashPage() {
             <Filter className="-ml-1 mr-2 h-4 w-4 text-gray-400" />
             {tCommon('filter')}
           </button>
-          <button className="inline-flex items-center px-4 py-2 border border-transparent rounded-lg shadow-lg shadow-green-500/30 text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 transition-colors">
-            <Plus className="-ml-1 mr-2 h-4 w-4" />
-            {t('newRequest')}
-          </button>
+          <Link href="/dashboard/finance/petty-cash/create">
+            <button className="inline-flex items-center px-4 py-2 border border-transparent rounded-lg shadow-lg shadow-green-500/30 text-sm font-medium text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-600 transition-colors">
+              <Plus className="-ml-1 mr-2 h-4 w-4" />
+              {t('newRequest')}
+            </button>
+          </Link>
         </div>
       </div>
 

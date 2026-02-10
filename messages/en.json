@@ -158,6 +158,30 @@
       "history": "Request History",
       "description": "Description",
       "reimbursed": "Reimbursed",
+      "amount": "Amount",
+      "date": "Date",
+      "category": "Category",
+      "receipt": "Receipt/Evidence",
+      "submit": "Submit Request",
+      "saveDraft": "Save Draft",
+      "back": "Back",
+      "form": {
+        "title": "Petty Cash Request Form",
+        "details": "Expense Details",
+        "enterDescription": "Enter description...",
+        "enterAmount": "0.00",
+        "selectCategory": "Select Category",
+        "uploadReceipt": "Upload Receipt",
+        "instruction": {
+          "title": "Instruction",
+          "subtitle": "Please ensure you have valid receipts for all expenses.",
+          "list": {
+            "upload": "Upload clear photos of receipts",
+            "categorize": "Categorize expenses correctly",
+            "submit": "Submit within 7 days of expense"
+          }
+        }
+      },
       "pending": "Pending"
     },
     "advancePayments": {
