@@ -73,8 +73,7 @@ export default function DashboardPage() {
             {t('description')}
           </p>
         </div>
-        <div className="mt-4 sm:mt-0 flex gap-2 items-center">
-            <LanguageSwitcher />
+        <div className="mt-4 sm:mt-0 flex gap-2 items-center"> 
             <button className="px-4 py-2 bg-white border border-gray-200 text-gray-600 rounded-lg shadow-sm hover:bg-gray-50 text-sm font-medium transition-colors">
                 {t('export')}
             </button>

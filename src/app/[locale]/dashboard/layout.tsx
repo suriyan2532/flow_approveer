@@ -19,6 +19,7 @@ import {
   CheckSquare,
   BarChart,
   DollarSign,
+  Car,
   ChevronDown,
 } from "lucide-react";
 import Logo from "@/components/Logo";
@@ -62,6 +63,17 @@ export default function DashboardLayout({
         { name: t("pettyCash"), href: "/dashboard/finance/petty-cash", icon: Banknote },
         { name: t("advancePayments"), href: "/dashboard/finance/advance-payments", icon: CreditCard },
         { name: t("clearance"), href: "/dashboard/finance/clearance", icon: CheckSquare },
+      ],
+    },
+    {
+      name: t("vehicles"),
+      href: "#",
+      icon: Car,
+      children: [
+        { name: t("request"), href: "/dashboard/vehicles/request", icon: FileText },
+        { name: t("approvals"), href: "/dashboard/vehicles/approvals", icon: CheckSquare },
+        { name: t("history"), href: "/dashboard/vehicles/history", icon: BarChart },
+        { name: t("calendar"), href: "/dashboard/vehicles/calendar", icon: LayoutDashboard },
       ],
     },
     { name: t("reports"), href: "/dashboard/reports", icon: BarChart },

@@ -21,16 +21,13 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex bg-white">
       {/* Left Side - Branding (Hidden on mobile) */}
-      <div className="hidden lg:flex lg:w-1/2 bg-[#0f172a] items-center justify-center relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-0 right-0 w-64 h-64 bg-[#3f6ad8]/10 rounded-full -mr-32 -mt-32 blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#3f6ad8]/10 rounded-full -ml-32 -mb-32 blur-3xl"></div>
+      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#f8f9fa] to-[#e9ecef] items-center justify-center relative overflow-hidden">
+        {/* Decorative elements to mimic reference site cards */}
+        <div className="absolute top-20 left-20 w-64 h-64 bg-white/40 rounded-3xl blur-2xl transform rotate-12"></div>
+        <div className="absolute bottom-20 right-20 w-80 h-80 bg-white/40 rounded-3xl blur-2xl transform -rotate-12"></div>
         
-        <div className="z-10 text-center scale-150">
+        <div className="z-10 text-center scale-[1.8] bg-white p-12 rounded-[2rem] shadow-[0_15px_35px_-5px_rgba(0,0,0,0.05)] border border-white">
             <Logo />
-            <div className="mt-8">
-              <p className="text-blue-400 text-sm font-bold tracking-[0.3em] uppercase opacity-80">Flow Approver System</p>
-            </div>
         </div>
       </div>
 
@@ -64,7 +61,7 @@ export default function LoginPage() {
                     autoComplete="username"
                     required
                     placeholder={t('usernamePlaceholder')}
-                    className="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 sm:text-sm"
+                    className="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#3f6ad8] focus:border-[#3f6ad8] sm:text-sm"
                     value={username}
                     onChange={(e) => setUsername(e.target.value)}
                   />
@@ -83,7 +80,7 @@ export default function LoginPage() {
                     autoComplete="current-password"
                     required
                     placeholder={t('passwordPlaceholder')}
-                    className="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 sm:text-sm"
+                    className="appearance-none block w-full px-3 py-3 border border-gray-300 rounded-lg shadow-sm placeholder-gray-400 focus:outline-none focus:ring-[#3f6ad8] focus:border-[#3f6ad8] sm:text-sm"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                   />
@@ -99,7 +96,7 @@ export default function LoginPage() {
               <div>
                 <button
                   type="submit"
-                  className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-gray-900 bg-yellow-400 hover:bg-yellow-500 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
+                  className="w-full flex justify-center py-3 px-4 border border-transparent rounded-lg shadow-md shadow-blue-500/20 text-sm font-medium text-white bg-[#3f6ad8] hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#3f6ad8] transition-all"
                 >
                   {t('submitButton')}
                 </button>
