@@ -7,6 +7,7 @@ interface LogoProps {
   showText?: boolean;
   className?: string;
   isWhite?: boolean;
+  expanded?: boolean;
 }
 
 export default function Logo({ showText = true, className = "", isWhite = false }: LogoProps) {
