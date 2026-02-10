@@ -292,15 +292,6 @@
     "approved": "Approved",
     "active": "Active",
     "viewAllUsers": "View All Users",
-    "table": {
-      "name": "Name",
-      "status": "Status",
-      "role": "Role",
-      "actions": "Actions",
-      "administrator": "Administrator",
-      "developer": "Developer",
-      "manager": "Manager"
-    },
     "months": {
       "jan": "Jan",
       "feb": "Feb",
@@ -321,6 +312,28 @@
       "marketing": "Marketing",
       "research": "Research",
       "other": "Other"
+    },
+    "totalPurchaseOrders": "Total Purchase Orders",
+    "budgetSpending": "Budget Spending",
+    "pendingApprovals": "Pending Approvals",
+    "todaysVehicleBookings": "Today's Vehicle Bookings",
+    "vsBudget": "vs Budget",
+    "activeTrips": "Active Trips",
+    "monthlySpendingOverview": "Monthly Spending Overview",
+    "expenseByDepartment": "Expense By Department",
+    "recentPurchaseOrders": "Recent Purchase Orders",
+    "table": {
+      "name": "Name",
+      "status": "Status",
+      "role": "Role",
+      "actions": "Actions",
+      "administrator": "Administrator",
+      "developer": "Developer",
+      "manager": "Manager",
+      "poId": "Purchase Order ID",
+      "requesterDept": "Requester / Dept",
+      "amount": "Amount",
+      "date": "Date"
     },
     "timelineItems": {
       "meeting": "All hands meeting",

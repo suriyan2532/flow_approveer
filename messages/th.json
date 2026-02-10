@@ -292,15 +292,6 @@
     "approved": "อนุมัติแล้ว",
     "active": "ใช้งานอยู่",
     "viewAllUsers": "ดูผู้ใช้งานทั้งหมด",
-    "table": {
-      "name": "ชื่อ",
-      "status": "สถานะ",
-      "role": "บทบาท",
-      "actions": "การดำเนินการ",
-      "administrator": "ผู้ดูแลระบบ",
-      "developer": "นักพัฒนา",
-      "manager": "ผู้จัดการ"
-    },
     "months": {
       "jan": "ม.ค.",
       "feb": "ก.พ.",
@@ -321,6 +312,28 @@
       "marketing": "การตลาด",
       "research": "การวิจัย",
       "other": "อื่นๆ"
+    },
+    "totalPurchaseOrders": "คำสั่งซื้อทั้งหมด",
+    "budgetSpending": "งบประมาณที่ใช้ไป",
+    "pendingApprovals": "รอการอนุมัติ",
+    "todaysVehicleBookings": "การจองรถวันนี้",
+    "vsBudget": "เทียบกับงบประมาณ",
+    "activeTrips": "ทริปที่กำลังวิ่ง",
+    "monthlySpendingOverview": "ภาพรวมการใช้จ่ายรายเดือน",
+    "expenseByDepartment": "ค่าใช้จ่ายตามแผนก",
+    "recentPurchaseOrders": "คำสั่งซื้อล่าสุด",
+    "table": {
+      "name": "ชื่อ",
+      "status": "สถานะ",
+      "role": "บทบาท",
+      "actions": "การดำเนินการ",
+      "administrator": "ผู้ดูแลระบบ",
+      "developer": "นักพัฒนา",
+      "manager": "ผู้จัดการ",
+      "poId": "รหัสใบสั่งซื้อ",
+      "requesterDept": "ผู้ขอ / แผนก",
+      "amount": "จำนวนเงิน",
+      "date": "วันที่"
     },
     "timelineItems": {
       "meeting": "ประชุมทีมงาน",

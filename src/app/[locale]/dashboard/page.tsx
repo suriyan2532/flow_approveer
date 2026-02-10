@@ -16,7 +16,7 @@ import {
   PieChart,
   Pie,
 } from "recharts";
-import { Users, DollarSign, Activity, Calendar, ArrowUpRight, ArrowDownRight, MoreHorizontal, FileText } from "lucide-react";
+import { Users, DollarSign, Activity, Calendar, ArrowUpRight, ArrowDownRight, MoreHorizontal, FileText, Car } from "lucide-react";
 import { useTranslations } from 'next-intl';
 import LanguageSwitcher from '@/components/LanguageSwitcher';
 
@@ -59,7 +59,7 @@ export default function DashboardPage() {
   ];
 
   return (
-    <div className="space-y-6 text-[#495057]">
+    <div className="space-y-6 text-[#495057] font-kanit">
       {/* Page Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between mb-8">
         <div>
@@ -86,31 +86,31 @@ export default function DashboardPage() {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
-        {/* Card 1 */}
+        {/* Card 1: Total POs */}
         <div className="bg-white rounded-xl p-5 shadow-[0_0.46875rem_2.1875rem_rgba(4,9,20,0.03),0_0.9375rem_1.40625rem_rgba(4,9,20,0.03),0_0.25rem_0.53125rem_rgba(4,9,20,0.05),0_0.125rem_0.1875rem_rgba(4,9,20,0.03)] border-l-4 border-[#3f6ad8] relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
           <div className="flex justify-between items-start">
             <div>
-              <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">{t('totalUsers')}</p>
-              <h3 className="text-2xl font-bold text-[#3f6ad8]">1,896</h3>
+              <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">{t('totalPurchaseOrders')}</p>
+              <h3 className="text-2xl font-bold text-[#3f6ad8]">124</h3>
             </div>
              <div className="p-3 bg-[#e0f3ff] rounded-full text-[#3f6ad8]">
-                <Users className="w-6 h-6" />
+                <FileText className="w-6 h-6" />
              </div>
           </div>
           <div className="mt-4 flex items-center text-sm">
              <span className="text-green-500 font-bold flex items-center bg-green-50 px-2 py-0.5 rounded-full">
-                 <ArrowUpRight className="w-3 h-3 mr-1"/> +14%
+                 <ArrowUpRight className="w-3 h-3 mr-1"/> +12%
              </span>
              <span className="text-gray-400 ml-2">{t('sinceLastMonth')}</span>
           </div>
         </div>
 
-        {/* Card 2 */}
+        {/* Card 2: Budget Spending */}
         <div className="bg-white rounded-xl p-5 shadow-[0_0.46875rem_2.1875rem_rgba(4,9,20,0.03),0_0.9375rem_1.40625rem_rgba(4,9,20,0.03),0_0.25rem_0.53125rem_rgba(4,9,20,0.05),0_0.125rem_0.1875rem_rgba(4,9,20,0.03)] border-l-4 border-green-500 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
           <div className="flex justify-between items-start">
             <div>
-              <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">{t('revenue')}</p>
-              <h3 className="text-2xl font-bold text-green-600">$ 14.2k</h3>
+              <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">{t('budgetSpending')}</p>
+              <h3 className="text-2xl font-bold text-green-600">฿ 2.4M</h3>
             </div>
              <div className="p-3 bg-green-50 rounded-full text-green-600">
                 <DollarSign className="w-6 h-6" />
@@ -118,18 +118,18 @@ export default function DashboardPage() {
           </div>
            <div className="mt-4 flex items-center text-sm">
              <span className="text-green-500 font-bold flex items-center bg-green-50 px-2 py-0.5 rounded-full">
-                 <ArrowUpRight className="w-3 h-3 mr-1"/> +35%
+                 <ArrowUpRight className="w-3 h-3 mr-1"/> +5%
              </span>
-             <span className="text-gray-400 ml-2">{t('sinceLastMonth')}</span>
+             <span className="text-gray-400 ml-2">{t('vsBudget')}</span>
           </div>
         </div>
 
-        {/* Card 3 */}
+        {/* Card 3: Pending Approvals */}
         <div className="bg-white rounded-xl p-5 shadow-[0_0.46875rem_2.1875rem_rgba(4,9,20,0.03),0_0.9375rem_1.40625rem_rgba(4,9,20,0.03),0_0.25rem_0.53125rem_rgba(4,9,20,0.05),0_0.125rem_0.1875rem_rgba(4,9,20,0.03)] border-l-4 border-amber-500 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
           <div className="flex justify-between items-start">
             <div>
-              <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">{t('pendingOrders')}</p>
-              <h3 className="text-2xl font-bold text-amber-500">64</h3>
+              <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">{t('pendingApprovals')}</p>
+              <h3 className="text-2xl font-bold text-amber-500">8</h3>
             </div>
              <div className="p-3 bg-amber-50 rounded-full text-amber-500">
                 <Activity className="w-6 h-6" />
@@ -137,28 +137,28 @@ export default function DashboardPage() {
           </div>
            <div className="mt-4 flex items-center text-sm">
              <span className="text-red-500 font-bold flex items-center bg-red-50 px-2 py-0.5 rounded-full">
-                 <ArrowDownRight className="w-3 h-3 mr-1"/> -2%
+                 <ArrowDownRight className="w-3 h-3 mr-1"/> -2
              </span>
              <span className="text-gray-400 ml-2">{t('sinceYesterday')}</span>
           </div>
         </div>
 
-        {/* Card 4 */}
-        <div className="bg-white rounded-xl p-5 shadow-[0_0.46875rem_2.1875rem_rgba(4,9,20,0.03),0_0.9375rem_1.40625rem_rgba(4,9,20,0.03),0_0.25rem_0.53125rem_rgba(4,9,20,0.05),0_0.125rem_0.1875rem_rgba(4,9,20,0.03)] border-l-4 border-red-500 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
+        {/* Card 4: Vehicle Bookings */}
+        <div className="bg-white rounded-xl p-5 shadow-[0_0.46875rem_2.1875rem_rgba(4,9,20,0.03),0_0.9375rem_1.40625rem_rgba(4,9,20,0.03),0_0.25rem_0.53125rem_rgba(4,9,20,0.05),0_0.125rem_0.1875rem_rgba(4,9,20,0.03)] border-l-4 border-indigo-500 relative overflow-hidden group hover:-translate-y-1 transition-transform duration-300">
           <div className="flex justify-between items-start">
             <div>
-              <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">{t('issues')}</p>
-              <h3 className="text-2xl font-bold text-red-500">12</h3>
+              <p className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">{t('todaysVehicleBookings')}</p>
+              <h3 className="text-2xl font-bold text-indigo-500">5</h3>
             </div>
-             <div className="p-3 bg-red-50 rounded-full text-red-500">
-                <FileText className="w-6 h-6" />
+             <div className="p-3 bg-indigo-50 rounded-full text-indigo-500">
+                <Car className="w-6 h-6" />
              </div>
           </div>
            <div className="mt-4 flex items-center text-sm">
              <span className="text-green-500 font-bold flex items-center bg-green-50 px-2 py-0.5 rounded-full">
-                 <ArrowUpRight className="w-3 h-3 mr-1"/> {t('fixed')} 5
+                 <ArrowUpRight className="w-3 h-3 mr-1"/> {t('fixed')} 2
              </span>
-             <span className="text-gray-400 ml-2">{t('waitingForReview')}</span>
+             <span className="text-gray-400 ml-2">{t('activeTrips')}</span>
           </div>
         </div>
       </div>
@@ -167,7 +167,7 @@ export default function DashboardPage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         <div className="lg:col-span-2 bg-white rounded-xl shadow-[0_0.46875rem_2.1875rem_rgba(4,9,20,0.03),0_0.9375rem_1.40625rem_rgba(4,9,20,0.03),0_0.25rem_0.53125rem_rgba(4,9,20,0.05),0_0.125rem_0.1875rem_rgba(4,9,20,0.03)] p-6">
           <div className="flex items-center justify-between mb-6">
-               <h2 className="text-lg font-bold text-gray-700">{t('monthlyTrends')}</h2>
+               <h2 className="text-lg font-bold text-gray-700">{t('monthlySpendingOverview')}</h2>
                <div className="flex items-center gap-4 text-xs font-bold uppercase tracking-wider">
                   <div className="flex items-center gap-1.5"><div className="w-3 h-3 rounded-full bg-[#3f6ad8]"></div>{t('budget')}</div>
                   <div className="flex items-center gap-1.5"><div className="w-3 h-3 rounded-full bg-green-500"></div>{t('actual')}</div>
@@ -190,7 +190,7 @@ export default function DashboardPage() {
         </div>
 
         <div className="bg-white rounded-xl shadow-[0_0.46875rem_2.1875rem_rgba(4,9,20,0.03),0_0.9375rem_1.40625rem_rgba(4,9,20,0.03),0_0.25rem_0.53125rem_rgba(4,9,20,0.05),0_0.125rem_0.1875rem_rgba(4,9,20,0.03)] p-6">
-          <h2 className="text-lg font-bold text-gray-700 mb-6">{t('financeDistribution')}</h2>
+          <h2 className="text-lg font-bold text-gray-700 mb-6">{t('expenseByDepartment')}</h2>
           <div className="h-64 mb-4">
             <ResponsiveContainer width="100%" height="100%">
               <PieChart>
@@ -225,55 +225,10 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      {/* Row 3: Procurement Status (Bar) + Timeline */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        <div className="lg:col-span-2 bg-white rounded-xl shadow-[0_0.46875rem_2.1875rem_rgba(4,9,20,0.03),0_0.9375rem_1.40625rem_rgba(4,9,20,0.03),0_0.25rem_0.53125rem_rgba(4,9,20,0.05),0_0.125rem_0.1875rem_rgba(4,9,20,0.03)] p-6">
-          <div className="flex items-center justify-between mb-6">
-             <h2 className="text-lg font-bold text-gray-700">{t('procurementTitle')}</h2>
-          </div>
-          <div className="h-80">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={procurementData}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e9ecef" />
-                <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fill: '#adb5bd', fontSize: 11}} />
-                <YAxis axisLine={false} tickLine={false} tick={{fill: '#adb5bd', fontSize: 12}} />
-                <Tooltip />
-                <Bar dataKey="value" radius={[4, 4, 0, 0]}>
-                    {procurementData.map((entry, index) => (
-                        <Cell key={`cell-${index}`} fill={entry.fill} />
-                     ))}
-                </Bar>
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-        </div>
-
-        <div className="bg-white rounded-xl shadow-[0_0.46875rem_2.1875rem_rgba(4,9,20,0.03),0_0.9375rem_1.40625rem_rgba(4,9,20,0.03),0_0.25rem_0.53125rem_rgba(4,9,20,0.05),0_0.125rem_0.1875rem_rgba(4,9,20,0.03)] p-6">
-          <h2 className="text-lg font-bold text-gray-700 mb-6">{t('timeline')}</h2>
-          <div className="flow-root relative">
-              <div className="absolute left-4 top-0 bottom-0 w-0.5 bg-gray-100"></div>
-            <ul className="space-y-6">
-              {timelineItems.map((item, idx) => (
-                <li key={idx} className="relative pl-10">
-                  <span className={`absolute left-2.5 top-1.5 w-3 h-3 rounded-full border-2 border-white shadow-sm -ml-1.5 ${item.color}`}></span>
-                  <div className="flex flex-col">
-                      <span className="text-sm font-semibold text-gray-700">{item.title}</span>
-                      <span className="text-xs text-gray-400">{item.time}</span>
-                  </div>
-                </li>
-              ))}
-            </ul>
-             <button className="w-full mt-6 py-2 text-sm text-[#3f6ad8] font-medium hover:bg-blue-50 rounded-lg transition-colors">
-                 {t('viewAllActivity')}
-             </button>
-          </div>
-        </div>
-      </div>
-
-      {/* Recent Users Table */}
-      <div className="bg-white rounded-xl shadow-[0_0.46875rem_2.1875rem_rgba(4,9,20,0.03),0_0.9375rem_1.40625rem_rgba(4,9,20,0.03),0_0.25rem_0.53125rem_rgba(4,9,20,0.05),0_0.125rem_0.1875rem_rgba(4,9,20,0.03)] overflow-hidden">
+       {/* Recent Orders Table */}
+       <div className="bg-white rounded-xl shadow-[0_0.46875rem_2.1875rem_rgba(4,9,20,0.03),0_0.9375rem_1.40625rem_rgba(4,9,20,0.03),0_0.25rem_0.53125rem_rgba(4,9,20,0.05),0_0.125rem_0.1875rem_rgba(4,9,20,0.03)] overflow-hidden">
         <div className="px-6 py-4 border-b border-gray-100 flex items-center justify-between">
-          <h2 className="text-lg font-bold text-gray-700">{t('activeUsers')}</h2>
+          <h2 className="text-lg font-bold text-gray-700">{t('recentPurchaseOrders')}</h2>
            <div className="flex gap-2">
                <button className="text-xs font-semibold text-[#3f6ad8] bg-blue-50 hover:bg-blue-100 px-3 py-1 rounded-full transition-colors">{t('pending')}</button>
                <button className="text-xs font-semibold text-gray-500 bg-gray-50 hover:bg-gray-100 px-3 py-1 rounded-full transition-colors">{t('approved')}</button>
@@ -283,37 +238,45 @@ export default function DashboardPage() {
           <table className="min-w-full divide-y divide-gray-100">
             <thead className="bg-gray-50/50">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-bold text-gray-400 uppercase tracking-wider">{t('table.name')}</th>
+                <th className="px-6 py-3 text-left text-xs font-bold text-gray-400 uppercase tracking-wider">{t('table.poId')}</th>
+                <th className="px-6 py-3 text-left text-xs font-bold text-gray-400 uppercase tracking-wider">{t('table.requesterDept')}</th>
+                <th className="px-6 py-3 text-left text-xs font-bold text-gray-400 uppercase tracking-wider">{t('table.amount')}</th>
                 <th className="px-6 py-3 text-left text-xs font-bold text-gray-400 uppercase tracking-wider">{t('table.status')}</th>
-                <th className="px-6 py-3 text-left text-xs font-bold text-gray-400 uppercase tracking-wider">{t('table.role')}</th>
+                <th className="px-6 py-3 text-left text-xs font-bold text-gray-400 uppercase tracking-wider">{t('table.date')}</th>
                 <th className="px-6 py-3 text-left text-xs font-bold text-gray-400 uppercase tracking-wider">{t('table.actions')}</th>
               </tr>
             </thead>
             <tbody className="bg-white divide-y divide-gray-100">
-              {[1, 2, 3, 4].map((user) => (
-                <tr key={user} className="hover:bg-[#fcfdfd] transition-colors">
+              {[
+                  { id: "PO-2023-001", requester: "John Doe", dept: "Engineering", amount: "45,000 THB", status: "Approved", date: "2023-11-01" },
+                  { id: "PO-2023-002", requester: "Jane Smith", dept: "Sales", amount: "12,500 THB", status: "Pending", date: "2023-11-03" },
+                  { id: "PO-2023-003", requester: "Robert Brown", dept: "Ops", amount: "89,000 THB", status: "Rejected", date: "2023-11-05" },
+                  { id: "PO-2023-004", requester: "Alice Wong", dept: "Finance", amount: "15,000 THB", status: "Approved", date: "2023-11-08" },
+              ].map((po) => (
+                <tr key={po.id} className="hover:bg-[#fcfdfd] transition-colors">
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <div className="flex items-center">
-                      <div className="flex-shrink-0 h-10 w-10">
-                        <img
-                          className="h-10 w-10 rounded-full shadow-sm"
-                          src={`https://ui-avatars.com/api/?name=User+${user}&background=random`}
-                          alt=""
-                        />
-                      </div>
-                      <div className="ml-4">
-                        <div className="text-sm font-bold text-gray-700">{t('table.name')} {user}</div>
-                        <div className="text-xs text-gray-400">user{user}@company.com</div>
-                      </div>
-                    </div>
+                    <span className="text-sm font-bold text-[#3f6ad8]">{po.id}</span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
-                    <span className="px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-700">
-                      {t('active')}
+                    <div className="flex flex-col">
+                        <span className="text-sm font-bold text-gray-700">{po.requester}</span>
+                        <span className="text-xs text-gray-400">{po.dept}</span>
+                    </div>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-700">
+                    {po.amount}
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap">
+                    <span className={`px-3 py-1 inline-flex text-xs leading-5 font-semibold rounded-full ${
+                        po.status === 'Approved' ? 'bg-green-100 text-green-700' : 
+                        po.status === 'Pending' ? 'bg-amber-100 text-amber-700' : 
+                        'bg-red-100 text-red-700'
+                    }`}>
+                      {po.status}
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                    {t('table.administrator')}
+                    {po.date}
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                      <button className="text-gray-400 hover:text-[#3f6ad8] transition-colors">
@@ -326,7 +289,7 @@ export default function DashboardPage() {
           </table>
         </div>
         <div className="px-6 py-4 border-t border-gray-100 bg-gray-50/30 flex items-center justify-center">
-            <button className="text-sm font-medium text-[#3f6ad8] hover:text-blue-700">{t('viewAllUsers')}</button>
+            <button className="text-sm font-medium text-[#3f6ad8] hover:text-blue-700">{t('viewAllActivity')}</button>
         </div>
       </div>
     </div>
