@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Link, useRouter } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
-import { Plus, Search, Filter, MoreHorizontal, FileText } from "lucide-react";
+import { Plus, Search, Filter, MoreHorizontal, FileText, CheckCircle2, Activity } from "lucide-react";
 
 const initialRequisitions = [
   {
@@ -13,25 +13,58 @@ const initialRequisitions = [
     department: "Admin",
     amount: "5,000 THB",
     status: "Approved",
-    date: "2023-10-15",
+    currentStep: "Completed",
+    date: "2023-11-10",
   },
   {
     id: "PR-2023-002",
-    title: "New Laptops (x5)",
+    title: "MacBook Pro M3 (5 Units)",
     requester: "Jane Smith",
     department: "IT",
-    amount: "150,000 THB",
-    status: "Pending",
-    date: "2023-10-18",
+    amount: "450,000 THB",
+    status: "Verified",
+    currentStep: "Final Approver",
+    date: "2023-11-12",
   },
   {
     id: "PR-2023-003",
-    title: "Marketing Agency Fee",
+    title: "Marketing Campaign Q4",
     requester: "Mike Johnson",
     department: "Marketing",
-    amount: "30,000 THB",
+    amount: "150,000 THB",
+    status: "Pending",
+    currentStep: "Dept Head",
+    date: "2023-11-14",
+  },
+  {
+    id: "PR-2023-004",
+    title: "Server Maintenance",
+    requester: "Sarah Connor",
+    department: "IT",
+    amount: "25,000 THB",
+    status: "Dept Approved",
+    currentStep: "Finance Audit",
+    date: "2023-11-15",
+  },
+  {
+    id: "PR-2023-005",
+    title: "Office Furniture",
+    requester: "Jessica Pearson",
+    department: "Admin",
+    amount: "80,000 THB",
+    status: "Draft",
+    currentStep: "Drafting",
+    date: "2023-11-16",
+  },
+  {
+    id: "PR-2023-006",
+    title: "Software Licenses",
+    requester: "Harvey Specter",
+    department: "Legal",
+    amount: "120,000 THB",
     status: "Rejected",
-    date: "2023-10-20",
+    currentStep: "Terminated",
+    date: "2023-11-18",
   },
 ];
 
@@ -43,7 +76,7 @@ export default function PurchaseRequisitionsPage() {
 
   return (
     <div className="space-y-6 text-[#495057]">
-      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between font-kanit">
         <div>
            <div className="flex items-center gap-2 mb-1">
                 <div className="p-2 bg-blue-100 rounded-lg text-[#3f6ad8]">
@@ -90,7 +123,7 @@ export default function PurchaseRequisitionsPage() {
 
         <div className="overflow-x-auto">
           <table className="min-w-full divide-y divide-gray-100">
-            <thead className="bg-[#f8f9fa]">
+            <thead className="bg-[#f8f9fa] font-kanit">
               <tr>
                 <th
                   scope="col"
@@ -126,6 +159,12 @@ export default function PurchaseRequisitionsPage() {
                   scope="col"
                   className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider"
                 >
+                  {t('currentStep') || 'Current Step'}
+                </th>
+                <th
+                  scope="col"
+                  className="px-6 py-3 text-left text-xs font-bold text-gray-500 uppercase tracking-wider"
+                >
                   {tCommon('date')}
                 </th>
                 <th scope="col" className="relative px-6 py-3">
@@ -133,7 +172,7 @@ export default function PurchaseRequisitionsPage() {
                 </th>
               </tr>
             </thead>
-            <tbody className="bg-white divide-y divide-gray-100">
+            <tbody className="bg-white divide-y divide-gray-100 font-kanit">
               {requisitions.map((req) => (
                 <tr key={req.id} className="hover:bg-[#fcfdfd] transition-colors">
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-[#3f6ad8]">
@@ -156,13 +195,31 @@ export default function PurchaseRequisitionsPage() {
                       className={`px-3 py-1 inline-flex text-xs leading-5 font-bold rounded-full border ${
                         req.status === "Approved"
                           ? "bg-green-50 text-green-600 border-green-200"
+                          : req.status === "Verified"
+                          ? "bg-blue-50 text-blue-600 border-blue-200"
+                          : req.status === "Dept Approved"
+                          ? "bg-indigo-50 text-indigo-600 border-indigo-200"
                           : req.status === "Pending"
                           ? "bg-amber-50 text-amber-600 border-amber-200"
+                          : req.status === "Draft"
+                          ? "bg-gray-50 text-gray-600 border-gray-200"
                           : "bg-red-50 text-red-600 border-red-200"
                       }`}
                     >
                       {req.status}
                     </span>
+                  </td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500 font-medium">
+                    <div className="flex items-center gap-2">
+                        {req.status === "Approved" ? (
+                            <CheckCircle2 className="w-4 h-4 text-green-500" />
+                        ) : req.status === "Rejected" ? (
+                            <Activity className="w-4 h-4 text-red-400" />
+                        ) : (
+                            <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></div>
+                        )}
+                        {req.currentStep}
+                    </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-400">
                     {req.date}
@@ -180,12 +237,12 @@ export default function PurchaseRequisitionsPage() {
             </tbody>
           </table>
         </div>
-        <div className="px-6 py-4 border-t border-gray-100 bg-gray-50/50 flex items-center justify-between text-sm text-gray-500">
-            <span>{tCommon('showing', { start: 1, end: 3, total: 3 })}</span>
+        <div className="px-6 py-4 border-t border-gray-100 bg-gray-50/50 flex items-center justify-between text-sm text-gray-500 font-kanit">
+            <span>{tCommon('showing', { start: 1, end: requisitions.length, total: requisitions.length })}</span>
             <div className="flex gap-1">
-                <button className="px-3 py-1 border border-gray-200 rounded hover:bg-white disabled:opacity-50">{tCommon('previous')}</button>
-                <button className="px-3 py-1 border border-gray-200 rounded bg-[#3f6ad8] text-white">1</button>
-                <button className="px-3 py-1 border border-gray-200 rounded hover:bg-white">{tCommon('next')}</button>
+                <button className="px-3 py-1 border border-gray-200 rounded-lg hover:bg-white disabled:opacity-50 transition-colors">{tCommon('previous')}</button>
+                <button className="px-3 py-1 border border-[#3f6ad8] rounded-lg bg-[#3f6ad8] text-white shadow-sm font-bold">1</button>
+                <button className="px-3 py-1 border border-gray-200 rounded-lg hover:bg-white transition-colors">{tCommon('next')}</button>
             </div>
         </div>
       </div>

@@ -73,7 +73,8 @@
     "all": "All",
     "previous": "Previous",
     "next": "Next",
-    "showing": "Showing {start} to {end} of {total} entries"
+    "showing": "Showing {start} to {end} of {total} entries",
+    "print": "Print"
   },
   "Users": {
     "title": "User Management",
@@ -93,7 +94,8 @@
       "newRequest": "New Requisition",
       "searchPlaceholder": "Search requisitions...",
       "requester": "Requester",
-      "allRequisitions": "All Requisitions"
+      "allRequisitions": "All Requisitions",
+      "currentStep": "Current Step"
     },
     "contracts": {
       "title": "Contracts",
@@ -104,7 +106,20 @@
       "duration": "Duration",
       "value": "Value",
       "active": "Active",
-      "expired": "Expired"
+      "expired": "Expired",
+      "form": {
+        "title": "Create New Contract",
+        "details": "Contract Details",
+        "vendor": "Vendor / Supplier Name",
+        "contractTitle": "Contract Title",
+        "startDate": "Start Date",
+        "endDate": "End Date",
+        "value": "Total Value",
+        "details_label": "Additional Details",
+        "upload": "Upload Contract File (PDF, Scan)",
+        "submit": "Save Contract",
+        "back": "Back to List"
+      }
     },
     "workflow": {
       "newRequest": {
@@ -191,7 +206,17 @@
       "searchPlaceholder": "Search advances...",
       "purpose": "Purpose",
       "expectedClearance": "Expected Clearance",
-      "approved": "Approved"
+      "approved": "Approved",
+      "form": {
+        "title": "Advance Payment Request Form",
+        "details": "Advance Details",
+        "purpose": "Purpose of Advance",
+        "amount": "Requested Amount",
+        "clearanceDate": "Expected Clearance Date",
+        "notes": "Additional Notes",
+        "submit": "Submit Request",
+        "back": "Back"
+      }
     },
     "clearance": {
       "title": "Clearance",
@@ -202,7 +227,23 @@
       "totalExpense": "Total Expense",
       "returnAmount": "Return Amount",
       "cleared": "Cleared",
-      "draft": "Draft"
+      "draft": "Draft",
+      "form": {
+        "title": "Create Expense Clearance",
+        "details": "Clearance Details",
+        "advanceReference": "Advance Reference",
+        "selectAdvance": "Select Advance Request",
+        "expenses": "Expenses List",
+        "description": "Description",
+        "amount": "Amount",
+        "addExpense": "Add Item",
+        "receipts": "Receipts / Proof of Payment",
+        "uploadReceipts": "Upload Receipts",
+        "totalExpense": "Total Expense",
+        "balance": "Balance / Change",
+        "submit": "Submit Clearance",
+        "back": "Back"
+      }
     }
   },
   "Reports": {
