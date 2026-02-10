@@ -328,5 +328,19 @@
       "codeReview": "Code review",
       "customerCall": "Customer call"
     }
+  },
+  "Notifications": {
+    "title": "Notifications",
+    "unreadCount": "{count} New Alerts",
+    "clearAll": "Clear All",
+    "seeAll": "See All Activities",
+    "prTitle": "PR Approval Required",
+    "prDesc": "PR-2023-001: Office Supplies Q4 needs your approval.",
+    "pcTitle": "Petty Cash Request",
+    "pcDesc": "PC-2023-045: Team Dinner reimbursement waiting.",
+    "contractTitle": "Contract Expiring Soon",
+    "contractDesc": "Mailing Service Agreement expires in 15 days.",
+    "vehicleTitle": "Vehicle Request Update",
+    "vehicleDesc": "VH-REQ-089 has been assigned a driver."
   }
 }
