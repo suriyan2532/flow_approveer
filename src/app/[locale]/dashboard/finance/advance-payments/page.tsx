@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Plus, Search, Filter } from "lucide-react";
+import { Plus, Search, Filter, MoreHorizontal } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
 
@@ -83,7 +83,11 @@ export default function AdvancePaymentsPage() {
             <tbody className="bg-white divide-y divide-gray-200">
               {advances.map((item) => (
                 <tr key={item.id} className="hover:bg-gray-50 transition-colors">
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">{item.id}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-[#3f6ad8] font-kanit">
+                    <Link href={`/dashboard/finance/advance-payments/${item.id}`} className="hover:underline">
+                      {item.id}
+                    </Link>
+                  </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.requester}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.purpose}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{item.amount}</td>
@@ -94,7 +98,12 @@ export default function AdvancePaymentsPage() {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.expectedClearance}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <a href="#" className="text-blue-600 hover:text-blue-900">{tCommon('view')}</a>
+                    <Link 
+                      href={`/dashboard/finance/advance-payments/${item.id}`}
+                      className="text-gray-400 hover:text-[#3f6ad8] transition-colors p-1 rounded-full hover:bg-blue-50 inline-block"
+                    >
+                      <MoreHorizontal className="w-5 h-5"/>
+                    </Link>
                   </td>
                 </tr>
               ))}

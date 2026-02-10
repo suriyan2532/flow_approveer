@@ -85,7 +85,11 @@ export default function ClearancePage() {
             <tbody className="bg-white divide-y divide-gray-100">
               {clearances.map((item) => (
                 <tr key={item.id} className="hover:bg-[#fcfdfd] transition-colors">
-                  <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-[#3f6ad8]">{item.id}</td>
+                  <td className="px-6 py-4 whitespace-nowrap text-sm font-semibold text-[#3f6ad8] font-kanit">
+                    <Link href={`/dashboard/finance/clearance/${item.id}`} className="hover:underline">
+                      {item.id}
+                    </Link>
+                  </td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{item.advanceRef}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-600 font-medium">{item.requester}</td>
                   <td className="px-6 py-4 whitespace-nowrap text-sm font-bold text-gray-700">{item.totalExpense}</td>
@@ -101,9 +105,12 @@ export default function ClearancePage() {
                     </span>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                    <button className="text-gray-400 hover:text-[#3f6ad8] transition-colors p-1 rounded-full hover:bg-blue-50">
-                        <MoreHorizontal className="w-5 h-5"/>
-                    </button>
+                    <Link 
+                       href={`/dashboard/finance/clearance/${item.id}`}
+                       className="text-gray-400 hover:text-[#3f6ad8] transition-colors p-1 rounded-full hover:bg-blue-50 inline-block"
+                     >
+                         <MoreHorizontal className="w-5 h-5"/>
+                     </Link>
                   </td>
                 </tr>
               ))}
