@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Kanit } from "next/font/google";
 import "../globals.css";
 
+import { asset } from "@/lib/utils";
+
 const kanit = Kanit({
   variable: "--font-kanit",
   subsets: ["latin", "thai"],
@@ -12,7 +14,7 @@ export const metadata: Metadata = {
   title: "DND - Flow Approver",
   description: "Deep in details, Develop to success - Modern Flow Approval System",
   icons: {
-    icon: "/dnd.ico",
+    icon: asset("/dndn.ico"),
   },
 };
 

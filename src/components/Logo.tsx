@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { asset } from "@/lib/utils";
 
 interface LogoProps {
   showText?: boolean;
@@ -16,7 +17,7 @@ export default function Logo({ showText = true, className = "", isWhite = false 
     <div className={`flex items-center gap-3 ${className}`}>
       <div className="relative flex-shrink-0">
         <img 
-        src="/dndn_logo.jpg" 
+        src={asset("/dndn_logo.jpg")} 
         alt="DeepNDev Logo" 
         className="w-10 h-10 rounded-xl object-cover shadow-sm border border-gray-100"
         />
