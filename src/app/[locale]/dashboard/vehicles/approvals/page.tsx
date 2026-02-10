@@ -105,13 +105,13 @@ export default function VehicleApprovalsPage() {
                         </div>
 
                         <div className="flex items-center gap-3 self-end lg:self-center">
-                            <button className="flex items-center gap-2 px-4 py-2 bg-red-50 text-red-600 rounded-lg hover:bg-red-100 transition-colors font-bold text-sm">
+                            <button className="flex items-center gap-2 px-5 py-2.5 border-2 border-red-100 bg-white text-red-600 rounded-xl hover:bg-red-50 transition-all font-bold text-sm">
                                 <X className="w-4 h-4" />
-                                {tCommon('delete')}
+                                {tCommon('reject')}
                             </button>
-                            <button className="flex items-center gap-2 px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-bold text-sm shadow-md shadow-green-500/20">
+                            <button className="flex items-center gap-2 px-8 py-2.5 bg-[#34c759] text-white rounded-xl hover:bg-[#28ad48] transition-all font-bold text-sm shadow-lg shadow-green-500/20 active:scale-95">
                                 <Check className="w-4 h-4" />
-                                Approve
+                                {tCommon('approve')}
                             </button>
                         </div>
                     </div>

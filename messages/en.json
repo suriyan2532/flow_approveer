@@ -64,6 +64,8 @@
     "view": "View",
     "edit": "Edit",
     "delete": "Delete",
+    "approve": "Approve",
+    "reject": "Reject",
     "save": "Save Changes",
     "cancel": "Cancel",
     "add": "Add",

@@ -21,14 +21,13 @@ export default function LoginPage() {
   return (
     <div className="min-h-screen flex bg-white">
       {/* Left Side - Branding (Hidden on mobile) */}
-      <div className="hidden lg:flex lg:w-1/2 bg-gradient-to-br from-[#f8f9fa] to-[#e9ecef] items-center justify-center relative overflow-hidden">
-        {/* Decorative elements to mimic reference site cards */}
-        <div className="absolute top-20 left-20 w-64 h-64 bg-white/40 rounded-3xl blur-2xl transform rotate-12"></div>
-        <div className="absolute bottom-20 right-20 w-80 h-80 bg-white/40 rounded-3xl blur-2xl transform -rotate-12"></div>
-        
-        <div className="z-10 text-center scale-[1.8] bg-white p-12 rounded-[2rem] shadow-[0_15px_35px_-5px_rgba(0,0,0,0.05)] border border-white">
-            <Logo />
-        </div>
+      <div className="hidden lg:flex lg:w-1/2 relative overflow-hidden">
+        <img 
+          src="https://www.ifscapthai.com/wp-content/uploads/2024/08/2-66beeac86002f.webp" 
+          alt="Product Documents"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-blue-600/10 mix-blend-multiply"></div>
       </div>
 
       {/* Right Side - Login Form */}
