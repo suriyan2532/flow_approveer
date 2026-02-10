@@ -11,6 +11,9 @@ const kanit = Kanit({
 export const metadata: Metadata = {
   title: "DND - Flow Approver",
   description: "Deep in details, Develop to success - Modern Flow Approval System",
+  icons: {
+    icon: "/dnd.ico",
+  },
 };
 
 import { NextIntlClientProvider } from 'next-intl';
